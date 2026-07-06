@@ -212,4 +212,4 @@ Reports are written to `benchmarks/evaluation_report.json` and `benchmarks/distr
 
 ## License
 
-Licensed under the [Apache License 2.0](LICENSE). Third-party dependencies are listed in [NOTICE](NOTICE).
+Licensed under the [End User License Agreement](EULA). Third-party dependencies are listed in [NOTICE](NOTICE).
