@@ -40,6 +40,55 @@ User Message
 | **LLM** | Reasoning over retrieved context (not internal knowledge) |
 | **Optional fine-tune** | Style/domain tuning — not required for knowledge |
 
+## Zypher Platform (complete stack)
+
+Mega brain + enterprise platform layer:
+
+```
+                    ┌─────────────────────────────────┐
+                    │       Zypher Platform API       │
+                    │  REST · Sessions · Jobs · Admin │
+                    └───────────────┬─────────────────┘
+                                    │
+          ┌─────────────────────────┼─────────────────────────┐
+          ▼                         ▼                         ▼
+   ┌─────────────┐          ┌─────────────┐          ┌─────────────┐
+   │ Zypher Brain│          │  LLM Engine │          │   Agents    │
+   │  (knowledge)│          │ (reasoning) │          │ (tools/RAG) │
+   └─────────────┘          └─────────────┘          └─────────────┘
+```
+
+```bash
+make generate-mega      # expand brain
+make platform-index     # index brain
+make serve              # REST API on :8080
+```
+
+### API endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Health check |
+| `/v1/stats` | GET | Brain + platform statistics |
+| `/v1/chat` | POST | Chat with brain retrieval + LLM |
+| `/v1/retrieve` | POST | Search brain only (no LLM) |
+| `/v1/documents` | POST | Ingest new doc (no retraining) |
+| `/v1/index` | POST | Enqueue index job |
+| `/v1/generate` | POST | Enqueue mega corpus job |
+| `/v1/sessions` | POST/GET | Conversation sessions |
+| `/v1/jobs/{id}/run` | POST | Run background job |
+
+### Platform module
+
+```
+zypher_platform/
+├── core.py           # ZypherPlatform orchestrator
+├── api/app.py        # FastAPI REST API
+├── sessions/         # Multi-user conversation store
+├── jobs/             # Background index + generate jobs
+└── agents/           # Tool-calling agent orchestrator
+```
+
 ## Quick start
 
 ```bash
@@ -52,6 +101,34 @@ make chat               # Brain retrieval + LLM reasoning
 ```
 
 No fine-tuning required. To enable an optional adapter, set `adapter.enabled: true` in `config/llm.yaml`.
+
+## Zypher Product (value-first package)
+
+The product package delivers **curated knowledge**, not just volume. It includes everything needed for production RAG:
+
+| Component | What you get |
+|-----------|--------------|
+| Curated knowledge base | Original synthetic `CHUNK-*.md` documents (Apache-2.0) |
+| Vector-ready chunks | `data/product/chunks/chunks.jsonl` |
+| Embeddings | Pre-computed vectors + generation scripts |
+| Graph relationships | Typed edges (`depends_on`, `uses`, `see_also`, …) |
+| Metadata index | `data/product/metadata/documents.json` |
+| Benchmark datasets | FAQ pairs, retrieval gold, RAG eval |
+| Evaluation scripts | Recall@k, faithfulness, evidence report |
+| Examples + docs | RAG pipeline, API client, setup guides |
+
+```bash
+make product      # Full build: chunks → dedup → validate → graph → embeddings → benchmarks
+make evaluate     # Run evaluation + evidence report
+```
+
+> The biggest challenge isn't making it big — it's making it valuable.
+
+Quality gates enforce: original synthetic content, accurate metadata, ≤5% duplication, Apache-2.0 licensing with NOTICE file, distribution audit, and retrieval evidence.
+
+**Not included in commercial package:** placeholder stubs (`_excluded_from_distribution/`), mega generated corpus (`generated/`). See `knowledge-base/PROVENANCE.md`.
+
+See [docs/product-setup.md](docs/product-setup.md) for the full guide.
 
 ## Zypher Brain module
 
@@ -89,6 +166,8 @@ Documentation · FAQs · API References · ADRs · Runbooks · Troubleshooting �
 | File | Purpose |
 |------|---------|
 | `config/brain.yaml` | Knowledge paths, retrieval, graph, memory |
+| `config/brain_curated.yaml` | Curated product mode (CHUNK docs only) |
+| `config/product.yaml` | Product build, quality gates, benchmarks |
 | `config/llm.yaml` | LLM provider, model, optional adapter |
 | `config/corpus_generation.yaml` | Corpus generator settings |
 
@@ -123,11 +202,18 @@ make train-xs          # optional — enable adapter in config/llm.yaml
 │   ├── chat.py
 │   └── llm/provider.py       # Swappable reasoning engine
 ├── knowledge-base/           # Seed + generated documents
+├── data/product/             # Product artifacts (chunks, embeddings, graph)
+├── benchmarks/               # Evaluation datasets + evidence reports
+├── examples/                 # RAG query, API client examples
+├── docs/                     # Setup, quality, evaluation, licensing guides
 ├── scripts/
+│   ├── product/              # Product build pipeline
 │   ├── generate_corpus.py    # Expand brain corpus
 │   └── prepare_advanced_dataset.py  # Optional training data
 └── config/
     ├── brain.yaml
+    ├── brain_curated.yaml
+    ├── product.yaml
     └── llm.yaml
 ```
 

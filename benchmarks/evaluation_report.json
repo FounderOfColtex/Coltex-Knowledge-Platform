@@ -1,0 +1,492 @@
+{
+  "generated_at": "2026-07-06T19:08:03.309914+00:00",
+  "brain_config": "/workspace/config/brain_curated.yaml",
+  "top_k": 8,
+  "metrics": {
+    "retrieval": {
+      "metric": "recall@8",
+      "value": 0.6889,
+      "samples": 15,
+      "details": [
+        {
+          "query": "What is Retrieval-Augmented Generation (RAG) for code?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00000",
+            "CHUNK-00079",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00002",
+            "CHUNK-00080",
+            "CHUNK-00092",
+            "CHUNK-00125"
+          ],
+          "relevant": [
+            "CHUNK-00000"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "How does Zypher use GraphRAG for architectural reasoning?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00001",
+            "CHUNK-00003",
+            "CHUNK-00035",
+            "CHUNK-00004",
+            "CHUNK-00044",
+            "CHUNK-00002",
+            "CHUNK-00071",
+            "CHUNK-00087"
+          ],
+          "relevant": [
+            "CHUNK-00001"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What are the benefits of Agentic RAG Workflows in Zypher?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00002",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00000",
+            "CHUNK-00001",
+            "CHUNK-00131",
+            "CHUNK-00083",
+            "CHUNK-00071"
+          ],
+          "relevant": [
+            "CHUNK-00002"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "How does Zypher ensure data quality and cleaning for code RAG?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00001",
+            "CHUNK-00002",
+            "CHUNK-00131",
+            "CHUNK-00096",
+            "CHUNK-00105",
+            "CHUNK-00036"
+          ],
+          "relevant": [
+            "CHUNK-00003"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What are Zypher's advanced code chunking strategies?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00004",
+            "CHUNK-00003",
+            "CHUNK-00002",
+            "CHUNK-00131",
+            "CHUNK-00096",
+            "CHUNK-00126",
+            "CHUNK-00001",
+            "CHUNK-00087"
+          ],
+          "relevant": [
+            "CHUNK-00004"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What does Zypher document about Lessons Learned?",
+          "recall_at_k": 0.0,
+          "retrieved": [
+            "CHUNK-00003",
+            "CHUNK-00001",
+            "CHUNK-00004",
+            "CHUNK-00002",
+            "CHUNK-00131",
+            "CHUNK-00105",
+            "CHUNK-00087",
+            "CHUNK-00136"
+          ],
+          "relevant": [
+            "CHUNK-00126"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What does Zypher document about Reviewer Comments?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00149",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00139",
+            "CHUNK-00001",
+            "CHUNK-00105",
+            "CHUNK-00131",
+            "CHUNK-00087"
+          ],
+          "relevant": [
+            "CHUNK-00149"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What does Zypher document about Reviewer Comments?",
+          "recall_at_k": 0.0,
+          "retrieved": [
+            "CHUNK-00149",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00139",
+            "CHUNK-00001",
+            "CHUNK-00105",
+            "CHUNK-00131",
+            "CHUNK-00087"
+          ],
+          "relevant": [
+            "CHUNK-00159"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What does Zypher document about Graph Link: Service-to-Service Communication Flow (Unique 0)?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00033",
+            "CHUNK-00043",
+            "CHUNK-00034",
+            "CHUNK-00035",
+            "CHUNK-00041",
+            "CHUNK-00074",
+            "CHUNK-00044",
+            "CHUNK-00047"
+          ],
+          "relevant": [
+            "CHUNK-00033"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What does Zypher document about Graph Link: Service-to-Service Communication Flow (Unique 1)?",
+          "recall_at_k": 1.0,
+          "retrieved": [
+            "CHUNK-00043",
+            "CHUNK-00033",
+            "CHUNK-00034",
+            "CHUNK-00044",
+            "CHUNK-00047",
+            "CHUNK-00091",
+            "CHUNK-00035",
+            "CHUNK-00001"
+          ],
+          "relevant": [
+            "CHUNK-00043"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "query": "What documents are related to What is Retrieval-Augmented Generation (RAG) for code??",
+          "recall_at_k": 0.4444,
+          "retrieved": [
+            "CHUNK-00000",
+            "CHUNK-00079",
+            "CHUNK-00004",
+            "CHUNK-00002",
+            "CHUNK-00003",
+            "CHUNK-00080",
+            "CHUNK-00123",
+            "CHUNK-00125"
+          ],
+          "relevant": [
+            "CHUNK-00000",
+            "CHUNK-00001",
+            "CHUNK-00002",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00005",
+            "CHUNK-00006",
+            "CHUNK-00007",
+            "CHUNK-00008"
+          ],
+          "difficulty": "hard"
+        },
+        {
+          "query": "What documents are related to How does Zypher use GraphRAG for architectural reasoning??",
+          "recall_at_k": 0.4444,
+          "retrieved": [
+            "CHUNK-00001",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00002",
+            "CHUNK-00087",
+            "CHUNK-00035",
+            "CHUNK-00044",
+            "CHUNK-00071"
+          ],
+          "relevant": [
+            "CHUNK-00001",
+            "CHUNK-00000",
+            "CHUNK-00002",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00005",
+            "CHUNK-00006",
+            "CHUNK-00007",
+            "CHUNK-00008"
+          ],
+          "difficulty": "hard"
+        },
+        {
+          "query": "What documents are related to What are the benefits of Agentic RAG Workflows in Zypher??",
+          "recall_at_k": 0.5556,
+          "retrieved": [
+            "CHUNK-00002",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00000",
+            "CHUNK-00131",
+            "CHUNK-00001",
+            "CHUNK-00087",
+            "CHUNK-00071"
+          ],
+          "relevant": [
+            "CHUNK-00002",
+            "CHUNK-00000",
+            "CHUNK-00001",
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00005",
+            "CHUNK-00006",
+            "CHUNK-00007",
+            "CHUNK-00008"
+          ],
+          "difficulty": "hard"
+        },
+        {
+          "query": "What documents are related to How does Zypher ensure data quality and cleaning for code RAG??",
+          "recall_at_k": 0.4444,
+          "retrieved": [
+            "CHUNK-00003",
+            "CHUNK-00004",
+            "CHUNK-00002",
+            "CHUNK-00001",
+            "CHUNK-00131",
+            "CHUNK-00087",
+            "CHUNK-00096",
+            "CHUNK-00036"
+          ],
+          "relevant": [
+            "CHUNK-00003",
+            "CHUNK-00000",
+            "CHUNK-00001",
+            "CHUNK-00002",
+            "CHUNK-00004",
+            "CHUNK-00005",
+            "CHUNK-00006",
+            "CHUNK-00007",
+            "CHUNK-00008"
+          ],
+          "difficulty": "hard"
+        },
+        {
+          "query": "What documents are related to What are Zypher's advanced code chunking strategies??",
+          "recall_at_k": 0.4444,
+          "retrieved": [
+            "CHUNK-00004",
+            "CHUNK-00003",
+            "CHUNK-00002",
+            "CHUNK-00131",
+            "CHUNK-00087",
+            "CHUNK-00001",
+            "CHUNK-00096",
+            "CHUNK-00071"
+          ],
+          "relevant": [
+            "CHUNK-00004",
+            "CHUNK-00000",
+            "CHUNK-00001",
+            "CHUNK-00002",
+            "CHUNK-00003",
+            "CHUNK-00005",
+            "CHUNK-00006",
+            "CHUNK-00007",
+            "CHUNK-00008"
+          ],
+          "difficulty": "hard"
+        }
+      ]
+    },
+    "faithfulness": {
+      "metric": "context_keyword_overlap",
+      "value": 0.85,
+      "samples": 10,
+      "details": [
+        {
+          "question": "What is Retrieval-Augmented Generation (RAG) for code?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "retrieval",
+            "knowledge",
+            "augmented",
+            "generation",
+            "answer",
+            "enhances",
+            "allowing",
+            "retrieve"
+          ],
+          "context_chars": 3496
+        },
+        {
+          "question": "How does Zypher use GraphRAG for architectural reasoning?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "zypher",
+            "graphrag",
+            "knowledge",
+            "architectural",
+            "reasoning",
+            "represent",
+            "answer",
+            "leverages"
+          ],
+          "context_chars": 3507
+        },
+        {
+          "question": "What are the benefits of Agentic RAG Workflows in Zypher?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "zypher",
+            "agentic",
+            "benefits",
+            "workflows",
+            "answer",
+            "allows",
+            "intelligent",
+            "agent"
+          ],
+          "context_chars": 3641
+        },
+        {
+          "question": "How does Zypher ensure data quality and cleaning for code RAG?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "zypher",
+            "ensure",
+            "quality",
+            "cleaning",
+            "answer",
+            "focuses",
+            "robust",
+            "redaction"
+          ],
+          "context_chars": 3664
+        },
+        {
+          "question": "What are Zypher's advanced code chunking strategies?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "chunking",
+            "zypher",
+            "retrieval",
+            "strategies",
+            "recursive",
+            "context",
+            "preservation",
+            "advanced"
+          ],
+          "context_chars": 3606
+        },
+        {
+          "question": "What does Zypher document about Lessons Learned?",
+          "keyword_overlap": 0.25,
+          "expected_keywords": [
+            "chunking",
+            "lessons",
+            "learned",
+            "implement",
+            "robust",
+            "monitoring",
+            "alerting",
+            "memory"
+          ],
+          "context_chars": 3510
+        },
+        {
+          "question": "What does Zypher document about Reviewer Comments?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "zypher",
+            "reviewer",
+            "comments",
+            "public",
+            "functions",
+            "should",
+            "always",
+            "comprehensive"
+          ],
+          "context_chars": 3374
+        },
+        {
+          "question": "What does Zypher document about Reviewer Comments?",
+          "keyword_overlap": 0.25,
+          "expected_keywords": [
+            "number",
+            "reviewer",
+            "comments",
+            "magic",
+            "better",
+            "define",
+            "named",
+            "constant"
+          ],
+          "context_chars": 3374
+        },
+        {
+          "question": "What does Zypher document about Graph Link: Service-to-Service Communication Flow (Unique 0)?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "service",
+            "graph",
+            "communication",
+            "unique",
+            "source",
+            "zypherchatservice",
+            "target",
+            "zypherindexingservice"
+          ],
+          "context_chars": 3176
+        },
+        {
+          "question": "What does Zypher document about Graph Link: Service-to-Service Communication Flow (Unique 1)?",
+          "keyword_overlap": 1.0,
+          "expected_keywords": [
+            "service",
+            "graph",
+            "communication",
+            "unique",
+            "source",
+            "zypherchatservice",
+            "target",
+            "zypherindexingservice"
+          ],
+          "context_chars": 3349
+        }
+      ]
+    },
+    "metadata": {
+      "metric": "metadata_accuracy",
+      "value": 1.0,
+      "samples": 108
+    }
+  },
+  "passed": true,
+  "evidence": [
+    "Retrieval recall@8: 68.89% (target \u2265 50%, PASS)",
+    "Context keyword overlap: 85.00% across 10 FAQ queries",
+    "Metadata accuracy: 100.00% (target \u2265 90%, PASS)"
+  ]
+}
