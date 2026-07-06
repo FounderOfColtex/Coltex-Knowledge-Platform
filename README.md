@@ -1,4 +1,4 @@
-# Zypher Mega RAG Database
+# Zypher — Mega RAG Database
 
 Enterprise-grade retrieval-augmented generation (RAG) dataset and indexing engine. Zypher delivers curated knowledge artifacts—vector-ready chunks, embeddings, graph relationships, metadata, benchmarks, and compliance tooling—designed for production RAG pipelines.
 
@@ -8,7 +8,7 @@ This repository contains the **knowledge layer only**: document corpus, export p
 
 ## Overview
 
-Zypher Brain is a modular RAG database composed of:
+Zypher is a modular RAG database composed of:
 
 | Layer | Description |
 |-------|-------------|
@@ -19,7 +19,7 @@ Zypher Brain is a modular RAG database composed of:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                     ZYPHER MEGA RAG DATABASE                   │
+│                       ZYPHER MEGA RAG DATABASE                   │
 │                                                                  │
 │   Knowledge Base  →  Chunks  →  Embeddings  →  Vector Index      │
 │        │              │            │              │              │
