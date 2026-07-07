@@ -2,7 +2,7 @@
 
 **Enterprise RAG Vector Dataset** — production-grade, graph-linked, vector-ready knowledge corpus for commercial AI deployment.
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![License: EULA](https://img.shields.io/badge/License-Coltex%20EULA-red.svg)](EULA.md)
 [![Dataset](https://img.shields.io/badge/documents-13k%2B-green.svg)](docs/commercial/datasheet.md)
 [![Chunks](https://img.shields.io/badge/chunks-83k%2B-orange.svg)](docs/commercial/datasheet.md)
 [![Graph edges](https://img.shields.io/badge/edges-57k%2B-purple.svg)](docs/commercial/datasheet.md)
@@ -31,7 +31,7 @@ Coltex delivers a fully auditable RAG dataset: 63 technology domains, 18 knowled
 | Document types | **22** typed classifications |
 | Graph edge types | **20** relationship types |
 | Embedding model | `all-MiniLM-L6-v2` (384-dim) |
-| License | **Apache-2.0** with full provenance |
+| License | **Coltex EULA** with full provenance |
 
 ---
 
@@ -145,11 +145,11 @@ Catalog index: `data/brain/catalog-index.json` · Architecture manifest: `data/b
 | [Technical datasheet](docs/commercial/datasheet.md) | Specifications |
 | [SKU matrix](docs/commercial/sku-matrix.md) | Tier comparison |
 | [Knowledge architecture](docs/architecture/knowledge-architecture.md) | Corpus structure |
-| [Product licensing](docs/product-licensing.md) | Apache-2.0 compliance |
+| [Product licensing](docs/product-licensing.md) | Coltex EULA |
 | [Product setup](docs/product-setup.md) | Build instructions |
 
 ---
 
 ## License
 
-Apache-2.0. Original synthetic content with full provenance. See [PROVENANCE.md](knowledge-base/PROVENANCE.md).
+**Coltex End User License Agreement (EULA).** Original synthetic content with full provenance. See [EULA.md](EULA.md) and [PROVENANCE.md](knowledge-base/PROVENANCE.md).

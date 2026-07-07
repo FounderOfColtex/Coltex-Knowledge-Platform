@@ -2,6 +2,15 @@
 
 All notable changes to the Coltex product package are documented here.
 
+## [4.3.1] - 2026-07-07
+
+### Changed — Commercial EULA
+
+- Replaced Apache-2.0 dataset licensing with **Coltex End User License Agreement (EULA)**
+- Added `EULA.md` (root) and `knowledge-base/EULA.md`
+- Updated product configs, audit pipeline, and commercial docs for EULA compliance
+- `knowledge-base/LICENSE` now points to EULA; engine third-party deps remain in `NOTICE`
+
 ## [4.3.0] - 2026-07-07
 
 ### Added — Enterprise RAG Vector Dataset (commercial tier)

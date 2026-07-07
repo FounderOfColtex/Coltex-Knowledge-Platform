@@ -4,6 +4,7 @@
 name: Coltex Product
 version: 1.0.0
 license: Coltex-EULA
+eula: EULA.md
 updated: 2026-07-06
 
 # Curated sources only (exclude synthetic generated corpus for product builds)
@@ -18,7 +19,7 @@ knowledge_base:
 
 # Commercial distribution compliance
 distribution:
-  require_kb_license: true
+  require_eula: true
   require_provenance: true
   require_notice: true
   # Reject placeholder stubs if they appear in distributable paths

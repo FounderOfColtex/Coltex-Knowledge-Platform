@@ -41,7 +41,7 @@ make audit-distribution     # Compliance check
 
 ## Compliance
 
-- **License:** Apache-2.0 (`knowledge-base/LICENSE`)
+- **License:** Coltex EULA ([EULA.md](../../EULA.md))
 - **Provenance:** `knowledge-base/PROVENANCE.md`
 - **Audit:** `benchmarks/distribution_audit.json` (after build)
 

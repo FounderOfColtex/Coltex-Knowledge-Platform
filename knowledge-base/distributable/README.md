@@ -23,6 +23,6 @@ make product-premium-smoke
 make product-hyper
 ```
 
-All content is **original synthetic** · **Apache-2.0** · passes distribution audit.
+All content is **original synthetic** · **Coltex EULA** · passes distribution audit.
 
 See [commercial docs](../../docs/commercial/product-overview.md) for full product details.

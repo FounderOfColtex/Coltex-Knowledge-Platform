@@ -14,7 +14,7 @@ Coltex is a fully auditable, graph-linked, vector-ready knowledge dataset design
 | **Structure** | 63 technology domains · 18 knowledge hubs · 306 graph links · 90 domain routes |
 | **Vector-ready** | Pre-chunked JSONL · optional pre-computed embeddings (MiniLM-L6-v2) |
 | **GraphRAG** | Typed relationship edges · hub clustering · region-aware GraphRouter |
-| **Compliance** | Apache-2.0 · full provenance · distribution audit pipeline |
+| **Compliance** | Coltex EULA · full provenance · distribution audit pipeline |
 | **Benchmarks** | FAQ pairs · retrieval gold · RAG evaluation datasets included |
 
 ---
@@ -55,7 +55,7 @@ Six processing layers (L1 ingestion through L6 governance), ten functional clust
 | `manifest.json` | JSON | SHA-256 checksums and build provenance |
 | `benchmarks/` | JSONL | FAQ, retrieval gold, RAG eval sets |
 
-Compliance files: `LICENSE`, `NOTICE`, `PROVENANCE.md`, `distribution_audit.json`
+Compliance files: `EULA.md`, `NOTICE`, `PROVENANCE.md`, `distribution_audit.json`
 
 ---
 
@@ -80,4 +80,4 @@ See [SKU matrix](sku-matrix.md) for tier comparison and [datasheet](datasheet.md
 
 ## License
 
-Apache-2.0. Original synthetic content. No third-party documentation reproduction. See [product licensing](../product-licensing.md).
+**Coltex End User License Agreement (EULA).** Original synthetic content. No third-party documentation reproduction. See [EULA.md](../../EULA.md) and [product licensing](../product-licensing.md).

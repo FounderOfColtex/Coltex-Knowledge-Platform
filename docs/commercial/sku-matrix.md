@@ -23,7 +23,7 @@ Commercial tiers for the Coltex Enterprise RAG Vector Dataset.
 
 ## What's in every tier
 
-- Apache-2.0 license with full provenance documentation
+- Coltex EULA with full provenance documentation
 - `manifest.json` with SHA-256 checksums
 - `distribution_audit.json` compliance report
 - Typed metadata on every document

@@ -5,7 +5,8 @@ name: Coltex Enterprise RAG Vector Dataset
 version: 3.0.0
 tier: enterprise
 price_usd: null
-license: Apache-2.0
+license: Coltex-EULA
+eula: EULA.md
 updated: 2026-07-07
 
 # Full curated knowledge base including architecture corpus
@@ -19,7 +20,7 @@ knowledge_base:
     - "**/_excluded_from_distribution/**"
 
 distribution:
-  require_kb_license: true
+  require_eula: true
   require_provenance: true
   require_notice: true
   forbidden_body_markers:

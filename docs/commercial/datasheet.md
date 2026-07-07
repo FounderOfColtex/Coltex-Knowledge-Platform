@@ -1,6 +1,6 @@
 # Coltex Dataset — Technical Datasheet
 
-**Version:** 3.0.0 · **Updated:** 2026-07-07 · **License:** Apache-2.0
+**Version:** 3.0.0 · **Updated:** 2026-07-07 · **License:** Coltex EULA
 
 ---
 
@@ -65,7 +65,7 @@ Embedding records add: `chunk_id`, `vector` (384 floats), `model`
 | License header | Required on all distributable docs |
 | Substantive content | ≥ 200 chars body (premium) |
 | Forbidden sources | No Wikipedia, StackOverflow, official doc URLs |
-| Distribution audit | LICENSE + PROVENANCE + NOTICE present |
+| Distribution audit | EULA + PROVENANCE + NOTICE present |
 
 ---
 
