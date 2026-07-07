@@ -127,9 +127,8 @@ def _section_body(section: str, topic: Topic, doc_type: str, variant: int) -> st
         f"1. Verify graph edges link `{topic.category}` documents to related hubs\n"
         f"2. Confirm chunk overlap preserves context across section boundaries\n"
         f"3. Run retrieval gold benchmarks after each corpus update\n"
-        f"4. Monitor duplicate chunk ratio stays below 5%\n\n"
-        f"**Coltex note:** Ground all agent responses in indexed context; never rely on uncited model knowledge.\n"
-        f"**Origin:** Coltex premium synthetic corpus · **Type:** {doc_type}"
+        f"4. Monitor duplicate chunk ratio stays below 5%"
+    )
     )
 
 
@@ -178,7 +177,6 @@ def build_premium_metadata(
         "tags": list(dict.fromkeys([topic.category, doc_type, topic.difficulty, "premium", "distributable"])),
         "difficulty": topic.difficulty,
         "related": related_ids or [],
-        "license": "Coltex-EULA",
         "origin": "coltex_premium_synthetic",
         "variant": variant,
     }

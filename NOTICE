@@ -14,5 +14,5 @@ Third-party open-source dependencies used by the RAG database engine
 Coltex knowledge base content
 ================================================================================
 Original synthetic documentation under knowledge-base/ (excluding
-_excluded_from_distribution/ and generated/) is governed by the Coltex EULA.
-See EULA, knowledge-base/LICENSE, and knowledge-base/PROVENANCE.md.
+_excluded_from_distribution/ and generated/) is included with a commercial
+use license. See EULA and knowledge-base/LICENSE.

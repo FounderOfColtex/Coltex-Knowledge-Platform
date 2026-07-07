@@ -1,11 +1,16 @@
-# Coltex Dataset License
+# Coltex Dataset — Commercial Use License
 
-Copyright 2026 Coltex AI. All rights reserved.
+Purchasers of the Coltex Dataset receive a perpetual, worldwide, non-exclusive
+license to:
 
-The Coltex knowledge base, product artifacts, benchmarks, and associated
-documentation are governed by the **Coltex Dataset End User License Agreement (EULA)**.
+- Use the Dataset for any lawful purpose, including commercial applications
+- Modify, index, embed, and create derivative works
+- Build and sell products, services, and AI systems powered by the Dataset
+- Share derivative outputs (embeddings, indexes, applications) with end users
 
-See the root [`EULA`](../EULA) for permitted uses, restrictions, and terms.
+No additional royalties or usage fees apply beyond the original purchase.
+
+Attribution to Coltex is appreciated but not required for derivative products.
 
 Files under `knowledge-base/_excluded_from_distribution/` and
 `knowledge-base/generated/` are not part of the commercial product package.

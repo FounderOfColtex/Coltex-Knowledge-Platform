@@ -32,7 +32,7 @@ Additional metadata exported in `data/product/metadata/documents.json`:
 
 ### Clear licensing
 
-- All product artifacts are governed by the Coltex EULA
+- All product artifacts include a commercial use license for purchasers
 - See [product-licensing.md](product-licensing.md) and root `LICENSE`
 
 ### Regular updates
