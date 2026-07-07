@@ -2,22 +2,53 @@
 
 All notable changes to the Coltex product package are documented here.
 
-## [4.1.0] - 2026-07-07
+## [4.2.1] - 2026-07-07
 
-### Added — Coltex Living Brain
+### Changed — Professional terminology
 
-- **`knowledge-base/living-brain/`** — Domain-organized folder tree (30+ domains, hubs, synapses, cortex, memory, reflexes)
-- **`scripts/living_brain.py`** — Bootstrap, grow, wire synapses, build neural-map manifest
-- **`python3 -m brain pulse`** — Living brain vitals (domains, hubs, synapses, graph edges)
-- **`config/living_brain.yaml`** — Living brain region and domain configuration
-- **`data/brain/neural-map.json`** — Auto-generated brain manifest
-- Makefile targets: `living-brain`, `living-brain-grow`, `living-brain-mega`, `living-brain-pulse`
+- Renamed `living-brain/` → `knowledge-corpus/`
+- Renamed `scripts/living_brain.py` → `scripts/knowledge_corpus.py`
+- Replaced "Living Brain" / "Hypercortex" wording with **Knowledge Corpus** / **Knowledge Architecture**
+- Hub `coltex_living_brain` → `coltex_knowledge_core`
+- CLI `brain pulse` → `brain report` (pulse retained as alias)
+- Makefile targets: `corpus`, `corpus-advanced`, `corpus-grow`, `corpus-report`
+
+## [4.2.0] - 2026-07-07
+
+### Added — Knowledge Architecture v2
+
+- **`config/brain_architecture.yaml`** — Master spec: 6 cortical layers, 10 lobes, 4 memory tiers, 18 hubs
+- **`scripts/brain_architecture.py`** — Architecture loader and domain-to-lobe mapping
+- **`brain/graph/neural_router.py`** — Region-aware GraphRAG with pathway/synapse score boosts
+- **10 brain lobes** — frontal, temporal, parietal, occipital, limbic, cerebellum, hippocampus, thalamus, amygdala, brainstem
+- **6 cortical layers** — L1-sensory through L6-meta
+- **4 memory tiers** — working, episodic, semantic, procedural
+- **Inter-lobe pathways** — excitatory, inhibitory, modulatory, associative, commissural
+- **13 new neural hubs** — vector_store_cluster, agent_orchestrator, llm_inference_gateway, etc.
+- **10 advanced GraphRAG edge types** — extends, validates, synthesizes, triggers, etc.
+- **`data/brain/architecture-manifest.json`** — Live architecture registry
+- **`docs/architecture/knowledge-architecture.md`** — Full architecture reference
+- **`make corpus-advanced`** — Full architecture bootstrap command
+- Enhanced `brain report` — architecture metrics (domains, clusters, pathways)
 
 ### Changed
 
-- README repositioned as **Living Brain** mega-dataset (not RAG-as-a-Service)
-- `config/brain.yaml` indexes `living-brain/` paths, increased graph hops to 3
-- Product setup guide updated for living brain workflow
+- Graph routing: 4 hops, 16 max chunks, advanced_routing enabled by default
+- `KNOWLEDGE_HUBS` expanded from 5 → 18
+- `RELATIONSHIP_TYPES` expanded from 10 → 20
+
+## [4.1.0] - 2026-07-07
+
+### Added — Coltex Knowledge Corpus
+
+- **`knowledge-base/knowledge-corpus/`** — Domain-organized folder tree
+- **`scripts/knowledge_corpus.py`** — Bootstrap, grow, wire graph links, build catalog
+- Makefile targets: `corpus`, `corpus-grow`, `corpus-mega`, `corpus-report`
+
+### Changed
+
+- README repositioned as **enterprise knowledge corpus** (not RAG-as-a-Service)
+- `config/brain.yaml` indexes `knowledge-corpus/` paths
 
 ### Removed
 
