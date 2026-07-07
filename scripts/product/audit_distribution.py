@@ -23,8 +23,10 @@ def check_required_files(dist_cfg: dict) -> dict:
     issues: list[str] = []
     required: list[tuple[str, Path]] = []
 
-    if dist_cfg.get("require_kb_license", True):
-        required.append(("knowledge-base/LICENSE", ROOT / "knowledge-base" / "LICENSE"))
+    require_eula = dist_cfg.get("require_eula", dist_cfg.get("require_kb_license", True))
+    if require_eula:
+        required.append(("EULA.md", ROOT / "EULA.md"))
+        required.append(("knowledge-base/EULA.md", ROOT / "knowledge-base" / "EULA.md"))
     if dist_cfg.get("require_provenance", True):
         required.append(("knowledge-base/PROVENANCE.md", ROOT / "knowledge-base" / "PROVENANCE.md"))
     if dist_cfg.get("require_notice", True):
@@ -68,10 +70,16 @@ def check_document_substance(cfg: dict, kb) -> dict:
             issues.append(f"{doc.doc_id}: {reason}")
             rejected.append({"doc_id": doc.doc_id, "path": doc.path, "reason": reason})
 
+    max_rejection_ratio = float(dist_cfg.get("max_rejection_ratio", 0.0))
+    rejection_ratio = len(rejected) / len(kb.documents) if kb.documents else 0.0
+    passed = not issues if max_rejection_ratio <= 0 else rejection_ratio <= max_rejection_ratio
+
     return {
-        "passed": not issues,
+        "passed": passed,
         "total_documents": len(kb.documents),
         "rejected": len(rejected),
+        "rejection_ratio": round(rejection_ratio, 4),
+        "max_rejection_ratio": max_rejection_ratio,
         "issues": issues[:20],
         "rejected_samples": rejected[:10],
     }
@@ -127,9 +135,10 @@ def main() -> None:
     kb = load_knowledge_base(cfg)
     dist_cfg = distribution_cfg(cfg)
     streaming = cfg.get("quality", {}).get("streaming_mode", False)
-    gen_stats_path = resolve_path(cfg["output"].get("generation_stats", ""))
+    gen_stats_path_str = cfg["output"].get("generation_stats", "")
+    gen_stats_path = resolve_path(gen_stats_path_str) if gen_stats_path_str else None
     gen_stats = {}
-    if gen_stats_path.exists():
+    if gen_stats_path and gen_stats_path.is_file():
         gen_stats = json.loads(gen_stats_path.read_text(encoding="utf-8"))
 
     doc_count = gen_stats.get("documents_generated", len(kb.documents)) if streaming else len(kb.documents)
