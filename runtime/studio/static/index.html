@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coltex — Knowledge Platform</title>
+  <title>Coltex — Self-Hosted Knowledge Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -674,7 +674,7 @@
         </div>
         <div class="brand-text">
           <h1>Coltex</h1>
-          <p>Knowledge Platform</p>
+          <p>Self-Hosted Platform</p>
         </div>
       </div>
     </div>
@@ -713,6 +713,10 @@
 
     <div class="nav-section">System</div>
     <nav class="nav" style="padding-top:0">
+      <button class="nav-item" data-page="deployment">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
+        Deployment
+      </button>
       <button class="nav-item" data-page="settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         Settings
@@ -720,8 +724,8 @@
     </nav>
 
     <div class="sidebar-footer">
-      <div>Localhost · Private</div>
-      <div class="version"><span class="status-dot"></span> Coltex v1.0</div>
+      <div id="deploy-footer">Self-Hosted · Private</div>
+      <div class="version"><span class="status-dot"></span> <span id="deploy-mode">Coltex v1.0</span></div>
     </div>
   </aside>
 
@@ -854,6 +858,17 @@
         <div id="ask-result" class="hidden"></div>
       </section>
 
+      <!-- Deployment -->
+      <section id="page-deployment" class="hidden">
+        <div class="page-header">
+          <h2>Deployment</h2>
+          <p>Self-hosted server configuration and access URLs</p>
+        </div>
+        <div class="panel" id="deployment-info">
+          <div class="empty"><p>Loading deployment configuration…</p></div>
+        </div>
+      </section>
+
       <!-- Settings -->
       <section id="page-settings" class="hidden">
         <div class="page-header">
@@ -926,11 +941,12 @@
     async function loadBanner() {
       const s = await api('/api/status');
       const chip = document.getElementById('workspace-chip');
-      if (s.name || s.workspace) {
-        const health = s.knowledge_health ?? 0;
+      const name = s.name || s.workspace?.name || (typeof s.workspace === 'string' ? s.workspace : null);
+      if (name) {
+        const health = s.knowledge_health ?? s.workspace?.knowledge_health ?? 0;
         chip.className = 'workspace-chip';
         chip.innerHTML = `
-          <span class="name">${s.name || s.workspace}</span>
+          <span class="name">${esc(String(name))}</span>
           <span class="health-pill ${healthClass(health)}">${health}% health</span>`;
       } else {
         chip.className = 'workspace-chip empty';
@@ -1027,11 +1043,37 @@
       return d.innerHTML;
     }
 
+    async function loadDeployment() {
+      const d = await api('/api/deployment');
+      document.getElementById('deploy-footer').textContent = `${d.mode || 'self-hosted'} · ${d.profile || 'lan'} profile`;
+      document.getElementById('deploy-mode').textContent = `Coltex · ${d.protocol || 'http'}`;
+
+      const urls = (d.access_urls || []).map(u =>
+        `<div class="result-item"><h4>${esc(u.label)}</h4><p><a href="${esc(u.url)}" style="color:var(--accent-light)" target="_blank">${esc(u.url)}</a></p></div>`
+      ).join('');
+
+      document.getElementById('deployment-info').innerHTML = `
+        <div class="form-grid" style="margin-bottom:1.5rem">
+          <div class="field"><label>Mode</label><input readonly value="${esc(d.mode || '')}" /></div>
+          <div class="field"><label>Profile</label><input readonly value="${esc(d.profile || '')}" /></div>
+          <div class="field"><label>Host</label><input readonly value="${esc(d.host || '')}" /></div>
+          <div class="field"><label>Port</label><input readonly value="${esc(String(d.port || ''))}" /></div>
+          <div class="field"><label>Protocol</label><input readonly value="${esc(d.protocol || '')}" /></div>
+          <div class="field"><label>Domain</label><input readonly value="${esc(d.domain || '—')}" /></div>
+        </div>
+        <div class="panel-title">Access URLs</div>
+        ${urls || '<div class="empty"><p>No access URLs configured</p></div>'}
+        <p style="margin-top:1rem;color:var(--text-muted);font-size:0.8125rem">
+          Edit <code>config/deployment.yaml</code> or set environment variables. See docs/deployment/self-hosted.md
+        </p>`;
+    }
+
     function loadPage(page) {
       if (page === 'dashboard') loadDashboard();
       if (page === 'knowledge') loadKnowledge();
       if (page === 'sources') loadSources();
       if (page === 'settings') loadSettings();
+      if (page === 'deployment') loadDeployment();
     }
 
     async function createWorkspace() {
@@ -1169,6 +1211,7 @@
     }
 
     loadDashboard();
+    loadDeployment();
   </script>
 </body>
 </html>
