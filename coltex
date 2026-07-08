@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Coltex CLI entry point."""
+"""Coltex CLI entry point — works from any directory."""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+# Ensure repo root is on sys.path when running ./coltex or python3 coltex
+ROOT = Path(__file__).resolve().parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from runtime.__main__ import main
 

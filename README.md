@@ -4,8 +4,31 @@
 
 Turn scattered business knowledge into AI-ready intelligence in under 10 minutes — from your terminal.
 
+## Install
+
+```bash
+git clone https://github.com/FounderOfColtex/Coltex-Knowledge-Platform.git
+cd Coltex-Knowledge-Platform
+
+python3 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+
+pip install -e .
+coltex --help
+```
+
+`pip install -e .` installs the `coltex` command into your virtualenv. After that, run `coltex` from **any directory**.
+
+### Without installing (from repo root only)
+
 ```bash
 pip install -r requirements.txt
+./coltex --help
+```
+
+You must be inside the cloned repo when using `./coltex` or `python3 coltex`.
+
+```bash
 coltex new MyWorkspace
 coltex upload document.pdf
 coltex ask "What is our policy?"
@@ -42,7 +65,7 @@ Coltex is a **local CLI**. Your project is a **`.ctex` workspace** — like `.up
 
 Supported uploads: **PDF · DOCX · Markdown · TXT · HTML · JSON**
 
-Also available: `./coltex` or `python3 -m runtime`
+Also available after install: `coltex` (recommended) or `python3 -m runtime` (repo root only)
 
 ---
 
