@@ -8,7 +8,7 @@
         runtime-monitor runtime-explain runtime-connector runtime-sources runtime-settings
 
 install:
-	pip install -r requirements.txt
+	pip install -e .
 
 clean:
 	rm -rf data/brain data/vector_store knowledge-base/generated data/product \
