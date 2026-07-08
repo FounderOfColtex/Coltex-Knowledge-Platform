@@ -2,6 +2,29 @@
 
 All notable changes to the Coltex product package are documented here.
 
+## [4.9.0] - 2026-07-08
+
+### Changed — Coltex V1 is CLI-only, MIT licensed
+
+- **Removed web UI** — deleted Knowledge Studio server and static HTML; no website, no cloud
+- **CLI is the product** — `dashboard`, `sources`, `settings`, `knowledge` commands added; `studio` removed
+- **MIT License** — replaced all paid tiers, EULA, Personal/Professional/Enterprise licenses
+- **Removed commercial docs** — deleted `licenses/`, `docs/commercial/`, tier pricing configs
+- **Updated product configs** — `require_license` checks root `LICENSE` instead of EULA files
+
+## [4.8.0] - 2026-07-08
+
+### Added — Coltex V1 product
+
+- **Tagline:** The AI Knowledge Platform for Modern Organizations
+- **Knowledge Studio V1 UI** — Dashboard, Knowledge, Sources, Search, Ask Knowledge, Analytics, Settings
+- **Upload & process** — PDF, DOCX, MD, TXT, HTML, JSON via Studio or `runtime upload`
+- **Ask Knowledge** — Q&A with sources, confidence, and explainability (`runtime ask`)
+- **Universal Search** — one search bar across document types
+- **V1 dashboard** — honest metrics: documents, sources, searches, AI queries, last sync, health
+- **Settings** — workspace, AI provider, embedding model, chunk size
+- Product spec: [docs/product/coltex-v1.md](docs/product/coltex-v1.md)
+
 ## [4.7.0] - 2026-07-07
 
 ### Added — Knowledge Studio, monitoring, explainability, proactive curator

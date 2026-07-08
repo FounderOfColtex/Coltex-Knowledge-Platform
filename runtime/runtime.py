@@ -32,13 +32,18 @@ from runtime.monitoring.metrics import RuntimeMonitor
 from runtime.plugins import sdk as plugin_sdk
 from runtime.plugins.manager import PluginManager
 from runtime.security.gateway import SecurityGateway
-from runtime.studio.studio import KnowledgeStudio
+from runtime.ask.knowledge import AskKnowledge
+from runtime.processing.pipeline import ProcessingPipeline
+from runtime.sources.upload import SourceManager
+from runtime.studio.studio import ColtexCLI
+from runtime.v1.dashboard import V1Dashboard
+from runtime.v1.settings import SettingsStore
 
 ROOT = Path(__file__).resolve().parent.parent
 
 
 class ColtexRuntime:
-    """Coltex Runtime — platform centerpiece with Knowledge Studio."""
+    """Coltex Runtime — local CLI knowledge platform."""
 
     def __init__(self, config_path: str | Path = "config/runtime.yaml"):
         self.config_path = Path(config_path)
@@ -68,7 +73,13 @@ class ColtexRuntime:
         self.explain = ExplainEngine(self.brain, self.monitor)
         self.security = SecurityGateway()
         self.api = APIGateway(self)
-        self.studio = KnowledgeStudio(self)
+        self.studio = ColtexCLI(self)
+
+        self.sources = SourceManager()
+        self.processing = ProcessingPipeline(self)
+        self.ask = AskKnowledge(self)
+        self.v1 = V1Dashboard(self)
+        self.settings = SettingsStore()
 
         self.connectors = ConnectorRegistry()
         self.connectors.register(FilesystemConnector())
@@ -93,15 +104,24 @@ class ColtexRuntime:
         return {
             "runtime": "coltex-runtime",
             "version": self.config.get("version", "1.0.0"),
-            "platform": "Knowledge Operating System for AI",
-            "use_today": {
-                "knowledge_studio": "python3 -m runtime studio",
-                "health_dashboard": "python3 -m runtime health",
-                "ai_curator": "python3 -m runtime curator",
-                "monitoring": "python3 -m runtime monitor",
-                "explainability": "python3 -m runtime explain \"query\"",
-                "connectors": "python3 -m runtime connector filesystem",
+            "platform": "Coltex V1 CLI",
+            "interface": "cli",
+            "commands": {
+                "status": "python3 -m runtime status",
+                "dashboard": "python3 -m runtime dashboard",
+                "upload": "python3 -m runtime upload file.pdf",
+                "ask": "python3 -m runtime ask \"your question\"",
                 "search": "python3 -m runtime search \"query\"",
+                "health": "python3 -m runtime health",
+                "sources": "python3 -m runtime sources",
+                "knowledge": "python3 -m runtime knowledge",
+                "settings": "python3 -m runtime settings",
+            },
+            "coltex_v1": {
+                "tagline": "The AI Knowledge Platform for Modern Organizations",
+                "goal": "AI-ready intelligence in under 10 minutes",
+                "docs": "docs/product/coltex-v1.md",
+                "license": "MIT",
             },
             "engines": {
                 "intelligence": self.intelligence.stats(),
@@ -118,10 +138,9 @@ class ColtexRuntime:
                 "explain": {"status": "active"},
                 "security": self.security.stats(),
             },
-            "knowledge_studio": {
-                **self.config.get("knowledge_studio", {}),
+            "cli": {
+                **self.config.get("cli", {}),
                 "status": "active",
-                "command": "python3 -m runtime studio",
             },
         }
 
@@ -154,6 +173,18 @@ class ColtexRuntime:
                 data["evolution_state"] = self.memory.evolution_state(doc)
                 return data
         return {"error": "not_found", "document_id": document_id}
+
+    def upload_and_process(self, file_path: str | Path) -> dict[str, Any]:
+        uploaded = self.sources.upload(Path(file_path))
+        if "error" in uploaded:
+            return uploaded
+        inbox = ROOT / uploaded["path"]
+        return self.processing.process(inbox)
+
+    def universal_search(self, query: str) -> dict[str, Any]:
+        self.brain.index(force=False)
+        self.ask.record_search()
+        return self.search.search(query)
 
     def knowledge_objects(self, limit: int = 10) -> list[dict[str, Any]]:
         return [self.knowledge_dna(d.doc_id) for d in self.brain.kb.documents[:limit]]
