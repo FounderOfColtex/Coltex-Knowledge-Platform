@@ -1,10 +1,10 @@
-# Coltex Mega RAG — Enterprise License
+# Coltex RAG — Enterprise License
 
 **SKU:** Enterprise · **Price:** Custom quote
 
 ## Grant
 
-An organization-wide commercial license to deploy the **full Coltex Mega RAG
+An organization-wide commercial license to deploy the **full Coltex RAG
 project** — 100,000,000+ documents, all marketplace shards, catalog, GraphRAG
 edges, benchmarks, and supporting artifacts — across multiple teams, workspaces,
 and tenants.
